@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Custom Player</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="content">
+			<h1>Welcome to Custom Player!</h1>
+			<form data-bind="submit: playVideo">
+				<h2>How are you feeling?</h2>
+				<input type="radio" name="feeling" value="Happy" data-bind="checked: feeling" />
+				<label for="happy-option">Happy</label>
+				<input type="radio" name="feeling" value="Neutral" data-bind="checked: feeling" />
+				<label for="neutral-option">Neutral</label>
+				<input type="radio" name="feeling" value="Sad" data-bind="checked: feeling" />
+				<label for="sad-option">Sad</label>
+				
+				<h2>What are you doing?</h2>
+				<input type="radio" name="action" value="Eating" data-bind="checked: action" />
+				<label for="eating-option">Eating</label>
+				<input type="radio" name="action" value="Coding" data-bind="checked: action" />
+				<label for="coding-option">Coding</label>
+				<input type="radio" name="action" value="Sleeping" data-bind="checked: action" />
+				<label for="sleeping-option">Sleeping</label>
+				
+				<h2>How long do you want to listen to music?</h2>
+				<input type="radio" name="hours" value="1" data-bind="checked: hours" />
+				<label for="hour-option">1 hour</label>
+				<input type="radio" name="hours" value="2" data-bind="checked: hours" />
+				<label for="two-option">2 hours</label>
+				<input type="radio" name="hours" value="3" data-bind="checked: hours" />
+				<label for="three-option">3 hours</label><br>
+				
+				<br><button type="submit">Submit</button>
+			</form><br>
+			<iframe data-bind="attr: {src: videoPath}" allow=autoplay></iframe>
+		</div>
+	</div>
+	<script src="myApp.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+    <script>
+        $(function(){
+           var MusicViewModel = new myApp.MusicViewModel();
+           ko.applyBindings(MusicViewModel);
+        });		
+    </script>
+</body>
+</html>
